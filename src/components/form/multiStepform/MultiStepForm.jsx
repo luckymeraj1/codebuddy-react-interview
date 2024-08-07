@@ -34,7 +34,11 @@ const MultiStepForm = () => {
     });
   console.log("error in form", errors);
 
-  const steps = ["Step 1", "Step 2", "Step 3"];
+  const steps = [
+    { label: "Step 1", value: 1 },
+    { label: "Step 2", value: 2 },
+    { label: "Step 3", value: 3 },
+  ];
   const renderInputField = (field) => {
     switch (field.type) {
       case "select":
@@ -102,7 +106,7 @@ const MultiStepForm = () => {
   };
 
   return (
-    <div className="flex w-full flex-col items-center justify-center rounded-md bg-white p-4 sm:w-3/6 sm:p-8 ">
+    <div className="flex w-full flex-col items-center justify-center rounded-md bg-white p-4 sm:w-3/6 sm:p-8 md:w-4/6 lg:w-3/6">
       <div className="w-full">
         <StepperPrimary
           activeStep={currentStep - 1}

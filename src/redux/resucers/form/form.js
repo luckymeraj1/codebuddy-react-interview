@@ -1,6 +1,7 @@
 const initialState = {
   loading: false,
   currentStep: 1,
+  completed: [0],
   profileData: {
     emailId: "",
     password: "",
@@ -16,7 +17,16 @@ export const form = (state = initialState, action) => {
   switch (action.type) {
     case "FORM_UPDATE":
       console.log("FORM_UPDATE");
-      return { ...state, profileData: action.payload };
+
+      return {
+        ...state,
+        profileData: action.payload,
+        completed: !state.completed.includes(state.currentStep)
+          ? [...state.completed, state.currentStep]
+          : [...state.completed],
+      };
+    case "STEPER_STATE":
+      return { ...state, currentStep: action.payload };
     case "STEP_UPDATE":
       console.log("STEP_UPDATE");
       return { ...state, currentStep: state.currentStep + action.payload };
