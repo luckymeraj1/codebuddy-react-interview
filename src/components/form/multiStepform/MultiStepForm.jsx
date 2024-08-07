@@ -32,7 +32,6 @@ const MultiStepForm = () => {
         }
       },
     });
-  console.log("error in form", errors);
 
   const steps = [
     { label: "Step 1", value: 1 },
